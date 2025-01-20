@@ -5,7 +5,6 @@ from player import Player
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.fill(SCREEN_COLOR) 
     clock = pygame.time.Clock()
 
     x = SCREEN_WIDTH / 2
@@ -18,6 +17,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        player.update(dt)
+        screen.fill(SCREEN_COLOR) 
         player.draw(screen)
         pygame.display.flip()
 
